@@ -1,0 +1,649 @@
+paths:
+  /login: 
+    get: 
+      operationId: R101
+      summary: 'R101: Login Form'
+      description: 'Provide login form. Access: VIS'
+      tags: 
+        - 'M01: Login'
+      responses: 
+        '200': 
+          description: 'Ok. Show Login Form'
+    post: 
+      operationId: R102
+      summary: 'R102: Login Action'
+      description: 'Processes the login form submission: Acess: VIS'
+      tags:
+        - 'M01: Login'
+      requestBody: 
+        required: true
+        content: 
+          application/x-www-form-urlencoded: 
+            schema: 
+              type: object
+              properties: 
+                email: 
+                  type: string
+                password: 
+                  type: string
+              required: 
+                - email
+                - password
+      responses: 
+        '302': 
+          description: 'Redirect to HomePage'
+          headers: 
+            Location: 
+              schema: 
+                type: string
+              examples: 
+                302Success: 
+                  description: 'Login Sucessfully. Redirect to HomePage'
+                  value: '/homepage'
+                302Error: 
+                  description: 'The credentials are wrong. Try again'
+                  value: '/login'
+                  
+  /logout:
+    get: 
+      operationId: R103
+      summary: 'R103: Logout'
+      description: 'Logout from current user: Acess: USR,ADM'
+      tags: 
+        - 'M01 : Logout '
+      responses: 
+        '302': 
+          description: 'Loggin out please wait until the process is completed'
+          headers: 
+            Location: 
+              schema: 
+                type: string
+              examples:
+                302Success: 
+                  description: 'Logged out sucessfully.'
+                  value: '/'
+  
+  /register: 
+    get: 
+      operationId: R104
+      summary: 'R104: Register'
+      description: 'Registering into SportHub: Access : VIS'
+      tags: 
+        - 'M01: Register'
+      responses: 
+        '200':
+          description: 'Ok. Show Registration Form'
+    post: 
+      operationId: R105
+      summary: 'R105: Registration Action'
+      description: 'Processes the registration form submission: Acess: VIS'
+      tags: 
+        - 'M01: Register'
+      requestBody: 
+        required: true
+        content: 
+          application/x-www-form-urlencoded: 
+            schema: 
+              type: object
+              properties: 
+                username: 
+                  type: string
+                name: 
+                  type: string
+                email:
+                  type: string
+                password: 
+                  type: string
+                is_public: 
+                  type: boolean
+              required: 
+                - username
+                - name
+                - email 
+                - password
+                - confirm-password
+      responses: 
+        '302': 
+          description: 'Redirect to the HomePage'
+          headers: 
+            Location: 
+              schema: 
+                type: string
+              examples: 
+                302Success: 
+                  description: 'Registered Successfully. Redirecting to HomePage'
+                  value: '/'
+                302Error: 
+                  description: 'Detecte Some Errors in the Register Form please try again.'
+                  value: '/register'
+                  
+  /profile/{id}: 
+    get: 
+      operationId: R106
+      summary: 'R106: See Users Profile'
+      description: 'Users profile with reference to his id: Access: USR,ADM,VST,OWN'
+      tags: 
+       - 'M03: Profile'
+       
+      parameters: 
+        - in: path
+          name: id 
+          schema: 
+            type: integer
+          required: True
+      responses: 
+        '200':
+          description: 'Show the individual profile'
+        '302':
+          description: 'Something went wrong while showing the user profile : User not logged in or the user you are searching for doesnt exist'
+          headers: 
+            Location:
+              schema: 
+                type: string 
+              examples: 
+                302Failure: 
+                  description: 'Error while checking the user individual profile'
+  
+  /api/profile:
+    get:
+      operationId: R107
+      summary: 'R107 : Search users'
+      description: 'Search public users. Access: VIS,USR, ADM'
+      tags:
+        - 'M02: Search'
+
+      parameters:
+        - in: query
+          name: search user
+          description: 'Search content about desired user'
+          schema:
+            type: string
+          required: true
+
+      responses:
+        '200':
+          description: 'Success. Returns a text containing a list of profiles information'
+        '403':
+          description: 'Unnavailable action. Not logged in'
+  
+  
+                  
+    
+  /profile/edit:
+    get: 
+      operationId: R108
+      summary: 'R108: Edit User Profile'
+      description: 'Provide Profile Edit Form: Access: OWN,ADM'
+      tags: 
+        - 'M03: Edit Profile'
+      responses: 
+        '200': 
+          description: 'Ok. Show Edit Form'
+        '401': 
+          description: 'You dont have authorization to edit this profile'
+          headers: 
+            Location: 
+              schema: 
+                type: string
+              examples: 
+                401Success: 
+                  description: 'Unauthorized. Redirecting to the previous page'
+                  value: '/profile/{id}'
+
+    post: 
+      operationId: R109
+      summary: 'R109: Edit Profile Action'
+      description: 'Check and Store the changes made by the user or by the Admin. Acess: USR,ADM'
+      tags: 
+        - 'M03: Edit Profile'
+      requestBody: 
+          required: true
+          content: 
+            application/x-www-form-urlencoded: 
+              schema: 
+                type: object
+                properties:
+                  name:
+                    type: string
+                  email: 
+                    type: string
+                  password: 
+                    type: string
+                  is_public: 
+                    type: boolean 
+                required: 
+                  - name
+                  - email 
+                  - password 
+                  - is_public
+      responses: 
+        '302': 
+          description: 'Redirect to Profile Page after processing and storing the new information'
+          headers: 
+            Location: 
+              schema: 
+                type: string 
+              examples: 
+                302Success: 
+                  description: 'Profile Edited Successfully. Redirecting to Profile Page'
+                  value: '/profile/{id}'
+                302Error: 
+                  description: 'Profile Edition went wrong. Please try again'
+                  value: '/profile/edit'
+  
+  /api/profile/{id}:
+   delete:
+    operationId: R110
+    summary: 'R110 : Delete Profile. Acess: ADM,OWN'
+    description: 'Deletes a user profile'
+    tags:
+      - 'M03 :Profile Delete'
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: 'ID of the profile to delete'
+        schema:
+          type: integer
+    responses:
+      '204':
+        description: 'No Content. Profile successfully deleted.'
+      '404':
+        description: 'Not Found. The specified profile ID does not exist.'
+      '500':
+        description: 'Internal Server Error. Something went wrong on the server.'
+        
+        
+  /profile/follow/{id}:
+    post:
+      operationId: R111
+      summary: 'R111 : Follow Profile'
+      description: 'Follows a user profile. Acess: USR'
+      tags:
+        - 'M03 : Profile Follows/Unfollows'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: 'ID of the profile to follow'
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'OK. Profile successfully followed.'
+        '404':
+          description: 'Not Found. The specified profile ID does not exist.'
+        '500':
+          description: 'Internal Server Error. Something went wrong on the server.'
+        
+        
+  /profile/unfollow/{id}:
+    delete:
+      operationId: R112
+      summary: 'R112 : Unfollow Profile'
+      description: 'Unfollows a user profile. Acess: USR'
+      tags:
+        - 'M03 : Profile Follows/Unfollows'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: 'ID of the profile to unfollow'
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: 'No Content. Profile successfully unfollowed.'
+        '404':
+          description: 'Not Found. The specified profile ID does not exist.'
+        '500':
+          description: 'Internal Server Error. Something went wrong on the server.'
+
+
+        
+                  
+  /homepage:
+    get:
+      operationId: R113
+      summary: 'R113: View timeline'
+      description: 'View home page timeline. Acess: VIS,USR, ADM'
+      tags:
+        - 'M03: HomePage'
+        
+      responses:
+        '200':
+          description: 'OK. Show timeline.'
+        '302' :
+          description: 'Redirect after unauthorized request.'
+          headers:
+            Location:
+              schema:
+                type: string
+              example:
+                  302Success:
+                    description: 'Login required. Redirecting to Login Page.'
+                    value: '/login'
+                    
+  
+  /space/add:
+    post:
+      operationId: R115
+      summary: 'R115 : Create Space Action'
+      description: 'Create Space. Access: USR'
+      tags:
+        - 'M04 : Space'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                is_public:
+                  type: boolean
+              required:
+                - content
+                - is_public
+      responses:
+        '302':
+          description: 'Redirect to space page after processing the new space'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Space Created Successfully. Redirecting to Space Page'
+                  value: '/space/{id}'
+                302Error:
+                  description: 'Space Creation Failed. Redirecting to Space Form'
+                  value: '/space'
+                  
+                  
+  /space/{id}:
+    get: 
+      operationId: R116
+      summary: 'R116: See Individual Space'
+      description: 'Users profile with reference to his id: Access: USR,ADM,VST,OWN'
+      tags: 
+       - 'M04: Space'
+       
+      parameters: 
+        - in: path
+          name: id 
+          schema: 
+            type: integer
+          required: True
+      responses: 
+        '200':
+          description: 'Show the individual space'
+        '302':
+          description: 'Something went wrong while showing the space'
+          headers: 
+            Location:
+              schema: 
+                type: string 
+              examples: 
+                302Failure: 
+                  description: 'Error while checking the individual space'
+    put:
+      operationId: R117
+      summary: 'R117 : Edit Space Action'
+      description: 'Processes the changes for space form submission. Access: USR,ADM'
+      tags:
+        - 'M04 : Space Edit'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                is_public:
+                  type: boolean
+              required:
+                - content
+                - is_public
+      responses:
+        '302':
+          description: 'Redirect to space page, simply changes the space form for editing status'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Edited Space Successfully. Redirecting to Space Page'
+                  value: '/edit/space/{id}'
+                302Error:
+                  description: 'Changes on Space Failed. Redirecting to Editing Space Form'
+                  value: '/space'
+                  
+  /api/space/{id}:
+    delete:
+      operationId: R118
+      summary: 'R118 : Delete Space Action'
+      description: 'Delete Space. Access: OWN, ADM'
+      tags:
+        - 'M04 : Space'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+              required:
+                  - id
+      responses:
+        '200':
+          description: 'Redirecting back to space page.'
+        '403':
+          description: 'Wrong action.'
+          
+  /api/space:
+    get:
+      operationId: R119
+      summary: 'R119 : Search spaces'
+      description: 'Search for other public spaces. Access: USR, ADM'
+      tags:
+        - 'M02: Search'
+
+      parameters:
+        - in: query
+          name: search user
+          description: 'Search desired space'
+          schema:
+            type: string
+          required: true
+
+      responses:
+        '200':
+          description: 'Success. Returns some HTML text containing a list of other related spaces'
+        '403':
+          description: 'Unnavailable action.'
+
+/homepage/search:
+
+    get:
+      operationId: R130
+      summary: 'R130: View user search page'
+      description: 'Show user search page, Access: USR, ADM'
+      tags:
+        - 'M02: Search'
+
+      responses:
+        '200':
+          description: 'OK. Show the search page UI'
+        '302':
+          description: 'Redirect after unauthorized request.'
+          headers:
+            Location:
+              schema:
+                type: string
+              example:
+                 - 302Success:
+                    description: 'You need login first. Redirect to login page or the profile is private.'
+                    value: '/login'
+
+          
+          
+  /comment/create: 
+    post:
+      operationId: R120
+      summary: 'R120 : Create Comment Action'
+      description: 'Processes the comment form submission. Access: USR'
+      tags:
+        - 'M05 : Comment'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+              required:
+                - content
+      responses:
+        '302':
+          description: 'Redirect to Space Page'
+          headers:
+            Location:
+              schema:
+                type: string
+              examples:
+                302Success:
+                  description: 'Comment Created Successfully. Redirecting to Space Page'
+                  value: '/space/{id}'
+                302Error:
+                  description: 'Comment Creation Failed. Redirecting to Comment Form'
+                  value: '/space/{id}'
+                    
+  /comment/edit: 
+    put: 
+      operationId: R121
+      summary: 'R121: Edit Comment Action'
+      description: 'Check and Store the changes made by the user or by the Admin. Acess: USR,ADM'
+      tags: 
+        - 'M05 : Edit Comment'
+      requestBody: 
+          required: true
+          content: 
+            application/x-www-form-urlencoded: 
+              schema: 
+                type: object
+                properties:
+                  content:
+                    type: string
+      responses: 
+        '302': 
+          description: 'Redirect to Space Page after processing and storing the new information'
+          headers: 
+            Location: 
+              schema: 
+                type: string 
+              examples: 
+                302Success: 
+                  description: 'Comment Edited Successfully. Redirecting to Space Page'
+                  value: '/space/{id}'
+                302Error: 
+                  description: 'Comment Edition went wrong. Please try again'
+                  value: '/space/{id}'
+                  
+  /api/comment/{id}: 
+    delete:
+      operationId: R122
+      summary: 'R122 : Delete Comment Action'
+      description: 'Delete Comment. Access: OWN, ADM'
+      tags:
+        - 'M05 : Comment'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+              required:
+                  - id
+      responses:
+        '200':
+          description: 'Redirecting back to space page.'
+        '403':
+          description: 'Wrong action.' 
+          
+          
+  /admin:
+    get:
+      operationId: R123
+      summary: 'R123 : Show Admin Page'
+      description: 'Displays the admin page. Access: ADM'
+      tags:
+        - 'M07 : Admin'
+      responses:
+        '200':
+          description: 'OK. Admin dashboard successfully loaded.'
+        '404':
+          description: 'Not Found. The admin page is not available.'
+        '500':
+          description: 'Internal Server Error. Something went wrong on the server.'
+
+        
+        
+  /profile/block/{id}:
+    post:
+      operationId: R124
+      summary: 'R124: Block Profile'
+      description: 'Blocks a user profile. Acess: ADM'
+      tags:
+        - 'M07 : Admin'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: 'ID of the profile to block'
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'OK. Profile successfully blocked.'
+        '404':
+          description: 'Not Found. The specified profile ID does not exist.'
+        '500':
+          description: 'Internal Server Error. Something went wrong on the server.'
+
+        
+    
+  /profile/unblock/{id}:
+    delete:
+      operationId: R125
+      summary: 'R125: Unblock Profile'
+      description: 'Unblocks a user profile. Acess: ADM'
+      tags:
+        - 'M07 : Admin'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: 'ID of the profile to unblock'
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: 'No Content. Profile successfully unblocked.'
+        '404':
+          description: 'Not Found. The specified profile ID does not exist.'
+        '500':
+          description: 'Internal Server Error. Something went wrong on the server.'
+    
+                 

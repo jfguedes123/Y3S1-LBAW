@@ -1,0 +1,93 @@
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #add8e6;
+}
+
+/* ------- Login ------- */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding-top: 10vh; 
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.recover-container 
+{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding-top: 10vh; 
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.resetPassword-container 
+{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding-top: 10vh; 
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.resetPassword-card form 
+{
+    margin: 0 auto;
+    padding: 1em;
+    max-width: 20em;
+    background-color: #1c2632;
+}
+
+.resetPassword-card form label, input {
+    color: white;
+}
+
+.recover-card form 
+{
+    margin: 0 auto;
+    padding: 1em;
+    max-width: 20em;
+    background-color: #1c2632;
+}
+
+.login-card form {
+    margin: 0 auto;
+    padding: 1em;
+    max-width: 20em;
+    background-color: #1c2632;
+}
+
+.recover-card form label, input {
+    color: white;
+}
+
+.login-card form label, input {
+    color: white;
+}
+
+/* ------- Register ------- */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding-top: 10vh; 
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.register-card form {
+    margin: 0 auto;
+    padding: 1em;
+    max-width: 20em;
+    background-color: #1c2632;
+}
+
+.register-card form label, input {
+    color: white;
+}

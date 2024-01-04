@@ -1,0 +1,190 @@
+body {
+  background-color: #131a21;
+  color: #000000;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.6em;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+
+}
+
+main > header {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  background-color: #2a3543;
+  padding: 1em;
+  margin: 0;
+}
+
+main > header h1 {
+  margin: 0;
+}
+
+main > header a.button {
+  margin: 1em;
+  justify-self: center;
+}
+
+main > header span {
+  margin: 1em;
+  justify-self: center;
+}
+
+#content label {
+  font-weight: normal;
+}
+
+#content > form {
+  margin: 0 auto;
+  padding: 1em;
+  max-width: 20em;
+  border: 1px solid #000000;
+}
+
+#content > form .error {
+  font-weight: bold;
+  color: #ff3333;
+}
+
+#content > form .success {
+  font-weight: bold;
+  color: #106af1;
+}
+
+#content > form input {
+  background-color: white;
+}
+
+.flex-container {
+  display: flex;
+  height: 100vh; 
+  .content {
+    border-radius: 5px;
+    flex: 1;
+    height: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    overflow: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .content input,
+  .content #results-users,
+  .content .card-header,
+  .content .card-body {
+    margin-left: 0; 
+    padding: 1em;
+  }
+
+  #cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #cards article.card {
+    display: flex;
+    flex-direction: column;
+    background-color: #6e7769;
+    padding: 1em;
+    margin: 1em;
+  }
+  #cards article.card header {
+    display: flex;
+    align-items: center;
+  }
+  #cards article.card header h2 {
+    flex-grow: 1;
+  }
+  #cards article.card header a.delete {
+    display: none;
+    font-size: 2.6rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.25;
+  }
+  #cards article.card header:hover a.delete {
+    display: inline;
+  }
+  #cards article.card li {
+    list-style-type: none;
+  }
+  #cards article.card li label {
+    display: flex;
+    align-items: baseline;
+  }
+  #cards article.card li label span {
+    margin-left: 0.5em;
+    flex-grow: 1;
+  }
+  #cards article.card li label a {
+    display: none;
+  }
+  #cards article.card li label:hover a {
+    display: inline;
+  }
+  #cards article.card input:checked + span {
+    -webkit-text-decoration: var(--primary-color) solid line-through;
+            text-decoration: var(--primary-color) solid line-through;
+  }
+  #cards article.card ul {
+    margin: 0;
+  }
+  #content form {
+    margin: 0;
+    max-width: 25em;
+  }
+  article.card {
+    margin: 0;
+    border-bottom: 1px solid rgba(96, 108, 118, 0.4);
+  }
+}
+
+button {
+  background-color: black;
+  border-color: black;
+}
+
+a.button {
+  background-color: black;
+  border-color: black;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+}
+
+.no_results {
+  color: red;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) { 
+
+  main > header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  main > header a.button,
+  main > header span {
+    margin: 0.5em ;
+    
+  }
+}
+
+
+
+
+
+
+
+
+

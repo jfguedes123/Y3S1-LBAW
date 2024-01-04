@@ -1,0 +1,297 @@
+/* ------ User ------- */
+
+.userinfo {
+  padding: 20px;
+  background-color: #131a21;
+  grid-template-columns: 1fr auto auto;
+  flex: 1;
+  margin-left: 0;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.user {
+  font-weight: bold;
+}
+
+.user p {
+  margin-bottom: 0;
+}
+
+.user a {
+  color: white;
+}
+
+.username p {
+  color: white;
+  margin-top: 0;
+}
+
+.username p::before {
+    
+    content: "@";
+}
+
+
+
+.dot {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.userinfo .button-container{
+  display:flex;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+
+.user-card-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.user-card {
+  flex: 1;
+}
+
+.user-card:first-child {
+  margin-right: 20px;
+}
+
+.profile-info {
+  margin-left: 20px;
+}
+
+.user p {
+  color: white;
+  margin-bottom: 0;
+}
+
+.follow-card {
+    background-color: #1c2632;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 500px;
+    color: white;
+}
+
+.follow-card #followsDiv {
+    border-bottom: white solid 1px;
+}
+
+.follow-card #followersDiv {
+    margin-top: 10px;
+}
+
+.follow-card ul #text {
+    margin-right: 10px;
+}
+
+select 
+{
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border-color: white;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #131a21;
+
+}
+
+.user-followers {
+  width: 75%;
+  background-color: #1c2632;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  overflow-y: auto; 
+}
+
+.user-following {
+  width: 75%;
+  background-color: #1c2632;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  overflow-y: auto; 
+}
+
+.profile-card h2 {
+  margin-bottom: 10px;
+}
+
+.profile-card a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.userinfo .profile-container .profile-info .user-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.userinfo .profile-container .profile-info .user-header div{
+  display: flex;
+    text-align: center;
+    color: white;
+    font-size: larger;
+    flex: 1;
+}
+
+.button-container-user{
+  display:flex;
+  justify-content: space-between;
+  border-bottom: white solid 1px;
+}
+
+.button-container-user button{
+  background-color: inherit;
+  border-color:#131a21;
+  
+}
+.userinfo .profile-container .user-card-container
+{
+  display:flex;
+  justify-content: space-between;
+}
+
+
+.userinfo .profile-container .user-card-container .user-card p1::before{
+  content: "@";
+}
+.userinfo .profile-container .user-card-container .user-card:first-child {
+  flex: 1;
+  background-color: #131a21;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.userinfo .profile-container .user-card-container .user-card:nth-child(2)
+{
+  flex: 1; 
+  margin-right: 20px;
+}
+
+.userinfo .profile-container .user-card-container .user-card .user-header
+{
+  display: flex; 
+  justify-content: space-between;
+}
+
+.userinfo .profile-container .user-card-container .user-card .user-header .user-extras
+{
+  display:flex; 
+  flex-direction: column;
+  text-align: center;
+  color: white; 
+  font-size: larger; 
+  margin-right: 20px;
+}
+
+.userinfo .profile-container img 
+{
+  width: 20%;
+  border-radius: 50%;
+  padding: 1em;
+}
+
+.userinfo .card-body .card .profile-img 
+{  
+  border-radius: 50%; 
+  padding: 1em;
+}
+
+.userinfo .card-body .card .profile-space 
+{
+  padding: 1em;
+  width: 20%;
+}
+
+
+/* ------ Edit User ------ */
+
+.userinfo .profile-container .profile-info .user-header div{
+  display: flex;
+    text-align: center;
+    color: white;
+    font-size: larger;
+    flex: 1;
+}
+
+.button-container-user{
+  display:flex;
+  justify-content: space-between;
+  border-bottom: white solid 1px;
+}
+
+.button-container-user button{
+  background-color: inherit;
+  border-color:#131a21;
+  
+}
+
+.userinfo .profile-container .user-card-container .user-card p1::before{
+  content: "@";
+}
+.userinfo .profile-container .user-card-container .user-card {
+  background-color: #131a21;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+
+
+@media screen and (max-width : 1124px) {
+  .side-searchbar 
+  {
+    display: none;
+  }
+  .side-searchpage 
+  {
+    display: none;
+  }
+  .group-sidebar 
+  {
+    display: none;
+  
+  }
+}
+
+@media screen and (max-width: 880px)
+{
+  .userinfo .profile-container .user-card-container .user-card .user-header .user-extras:last-child
+  {
+    display: none;
+  }
+}
+
+/* ------ Edit User ------ */

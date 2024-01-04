@@ -1,0 +1,357 @@
+/* ------- Group List ------- */
+
+.grouplist-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  overflow-y: auto; 
+}
+
+.grouplist-container .grouplist-card {
+  background-color: #1c2632;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.grouplist-container .grouplist-card .grouplist-card-header {
+  padding: 1em;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #e1e4e8;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.grouplist-container .grouplist-card .grouplist-card-body {
+  padding: 10px 0;
+  max-height: 400px; 
+  overflow-y: auto; 
+}
+
+.grouplist-container .grouplist-card .grouplist-card-body .grouplist-card-list {
+  padding: 0;
+
+  a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #49535f;
+  }
+}
+
+.grouplist-card-list li::marker {
+  content: ""; 
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+  opacity: 0; 
+  transition: opacity 0.5s; 
+}
+
+.modal-content {
+  background-color: #49535f;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .grouplist-container {
+    max-width: 100%;
+  }
+
+  .grouplist-container .grouplist-card {
+    padding: 10px;
+  }
+
+  .grouplist-container .grouplist-card .grouplist-card-header {
+    font-size: 16px;
+  }
+
+  .grouplist-container .grouplist-card .grouplist-card-body {
+    max-height: 300px;
+  }
+
+  .grouplist-container
+    .grouplist-card
+    .grouplist-card-body
+    .grouplist-card-list
+    a {
+    padding: 5px;
+  }
+
+  .grouplist-container
+    .grouplist-card
+    .grouplist-card-body
+    .grouplist-card-list
+    .modal
+    .modal-content {
+    width: 50%;
+  }
+
+  .grouplist-container
+    .grouplist-card
+    .grouplist-card-body
+    .grouplist-card-list
+    .modal
+    .modal-content
+    .close {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grouplist-container .grouplist-card {
+    padding: 5px;
+  }
+
+  .grouplist-container .grouplist-card .grouplist-card-header {
+    font-size: 14px;
+  }
+
+  .grouplist-container .grouplist-card .grouplist-card-body {
+    max-height: 200px;
+  }
+
+  .grouplist-container
+    .grouplist-card
+    .grouplist-card-body
+    .grouplist-card-list
+    a {
+    padding: 2px;
+  }
+
+  .grouplist-container
+    .grouplist-card
+    .grouplist-card-body
+    .grouplist-card-list
+    .modal
+    .modal-content {
+    width: 50%;
+  }
+
+  .grouplist-container
+    .grouplist-card
+    .grouplist-card-body
+    .grouplist-card-list
+    .modal
+    .modal-content
+    .close {
+    font-size: 20px;
+  }
+}
+
+/* ------ Group ------ */
+
+.group-card {
+  grid-template-columns: 1fr auto auto;
+  background-color: #1c2632;
+  padding: 20px;
+  flex: 1;
+  margin: 10px;
+  flex-direction: column;
+  border-radius: 5px;overflow-y: auto; 
+}
+
+.group-card .group-header {
+  display: flex;
+  align-items: center;
+}
+
+.group-card .group-header .groupauthor > a::before {
+  content: "@";
+}
+
+.group-card .group-header .groupauthor > a:hover {
+  text-decoration: underline;
+}
+
+.group-card .groupcontent-card .groupname,
+.group-card .groupcontent-card .groupcontent {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.group-card .group-header .groupauthor a {
+  color: white;
+  text-decoration: none;
+}
+
+.group-card .success {
+  color: #5cb85c;
+}
+
+.group-card .groupcontent-card .groupname {
+  font-size: 24px; 
+  font-weight: bold;
+}
+
+.group-card .groupconten-card .groupcontent {
+  font-size: 18px; 
+}
+
+.group-card .add-space-group-card .space-input-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-card .group-chat {
+  border-top: #49535f 1px solid;
+  border-bottom: #49535f 1px solid;
+  max-height: 450px;
+  overflow: auto;
+}
+
+.group-card .group-chat .space-card {
+  background-color: #49535f; 
+  color: white;
+}
+
+.group-card .button-container-group {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+}
+
+.group-card .button-container-group button {
+  border-color: #1c2632;
+  background-color: inherit;
+}
+
+.group-card .groupcontent-card .groupdescription {
+  color: white;
+}
+
+/* ------- Group Sidebar ------ */
+
+.group-sidebar .members-card {
+  margin-left: auto; 
+  width: 250px; 
+  height: 250px; 
+  background-color: #49535f;
+  color: white;
+  border-radius: 6px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.group-sidebar .members-card .member .member-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.group-sidebar .members-card .member .member-container .button-member-delete {
+  background-color: inherit;
+  border-color: #49535f;
+  margin-bottom: 2rem;
+}
+
+.group-sidebar .joinrequest-card {
+  margin-left: auto; 
+  width: 250px; 
+  height: 250px; 
+  background-color: #49535f;
+  color: white;
+  padding: 20px;
+  border-top: white 1px solid;
+  overflow: auto;
+}
+
+.group-sidebar .joinrequest-card .join button {
+  background-color: inherit;
+  border-color: #49535f;
+  margin-bottom: 2rem;
+}
+
+.group-sidebar .invitegroup-container {
+  margin-left: auto; 
+  width: 250px; 
+  height: 250px; 
+  background-color: #49535f;
+  color: white;
+  padding: 20px;
+  border-top: white 1px solid;
+}
+
+.group-sidebar .invitegroup-container form button {
+  background-color: inherit;
+  border-color: #49535f;
+  margin-bottom: 2rem;
+}
+
+.group-sidebar {
+  height: 100%;
+  position: relative;
+  background-color: #49535f;
+  right: 0;
+  color: #fff;
+  padding: 1em;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  overflow: auto;
+}
+
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .group-card {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .group-card .groupcontent-card .groupname {
+        font-size: 20px;
+    }
+
+    .group-card .groupcontent-card .groupcontent {
+        font-size: 16px;
+    }
+
+    .group-card .group-chat {
+        max-height: 300px;
+    }
+
+    .group-sidebar .members-card,
+    .group-sidebar .joinrequest-card,
+    .group-sidebar .invitegroup-container {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .group-sidebar {
+      display: none;
+    }
+  }

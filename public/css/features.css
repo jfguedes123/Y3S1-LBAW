@@ -1,0 +1,37 @@
+/* ------ features ------ */
+
+.features-card {
+  background-color: #1c2632;
+  overflow: auto;
+  flex: 1;
+  padding: 1em;
+  box-sizing: border-box; 
+  overflow: auto; 
+  margin-top: 0;
+  margin-bottom: 0;
+
+  h2 {
+    color: white;
+    font-weight: bold;
+  }
+
+  p {
+    color: white;
+    font-size: 24px;
+  }
+
+  table {
+    background-color: #49535f;
+    border-radius: 5px;
+    padding-left: 5px;
+    color: white;
+
+    td {
+      font-weight: bold;
+    }
+
+    th {
+      font-size: larger;
+    }
+  }
+}

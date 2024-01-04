@@ -1,0 +1,128 @@
+/* ------ Sidebar ------ */
+
+.sidebar {
+  width: 250px;
+  background-color: #49535f;
+  overflow-y: auto;
+  color: #fff;
+  padding: 1em;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 1em;
+  display: block;
+}
+
+.sidebar a:hover {
+  background-color: grey;
+  border-radius: 15px;
+}
+
+.sidebar a.active {
+  font-weight: bold;
+}
+
+/* ------ Footer ------ */
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #2a3543;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 0;
+
+}
+
+/* ------ Searchbar ------ */
+
+.side-searchbar,
+.side-searchpage {
+  height: 100%;
+  width: 250px;
+  background-color: #49535f;
+  right: 0;
+  color: #fff;
+  padding: 1em;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  overflow: auto;
+}
+
+.side-searchbar a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.side-searchpage a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.label-color {
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.side-searchbar #results-users,
+.side-searchbar #results-spaces {
+  width: 200px;
+  position: absolute;
+  background-color: #49535f;
+  max-height: 1000px; 
+  overflow-y: auto;
+}
+
+.side-searchbar .user-username.search-page-card-user,
+.side-searchbar .space-content.search-page-card-space,
+.side-searchbar .group-content.search-page-card-group,
+.side-searchbar .comment-content.search-page-card-comment {
+  margin-top: 15px !important;
+  margin-bottom: 0;
+  z-index: 1000;
+}
+
+.side-searchbar .search-user-card-username,
+.side-searchbar .search-space-card-content,
+.side-searchbar .search-group-card-content,
+.side-searchbar .search-comment-card-content {
+  margin-top: 0;
+  color: wheat;
+}
+
+.side-searchbar .trend-content p,
+.side-searchpage .trend-content p {
+  font-weight: bold;
+  font-size: large;
+}
+
+.side-searchbar .trend-content .trend {
+  overflow: auto;
+  max-height: 450px;
+}
+
+.side-searchbar .trend a:hover,
+.side-searchpage .trend a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 13%;
+  }
+}
+
+/* ------ EditUser forms ------ */
+
+.edit-user-container .edit-user-card{
+  color:white;
+}

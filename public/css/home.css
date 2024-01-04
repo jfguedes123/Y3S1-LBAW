@@ -1,0 +1,247 @@
+/* ------ Spaces in Home ------ */
+
+.card-header {
+  font-weight: bold;
+  color: black;
+  font-size: 1.5em;
+}
+
+.card {
+  padding : 5px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: box-shadow 0.3s ease-in-out;
+  background-color: #1c2632;
+}
+
+.content .card-body .card .profile-img 
+{
+  border-radius: 50%; 
+  padding: 1em;
+}
+
+.content .card-body .card .space-img 
+{
+  width:20%; 
+  padding: 1em;
+}
+
+.card li {
+  display: flex;
+  align-items: center;
+}
+
+.card a {
+  text-decoration: none;
+  color: white;
+}
+
+.card a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.card .profile-img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.card #space-home-content {
+  margin-top: 10px;
+}
+
+.card #space-home-content a {
+  font-size: 20px;
+}
+
+.card #space-home-content a:hover {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.card-list .card #likeSpace {
+    text-align: right;
+}
+
+.card-list .card #likeSpace button {
+    background-color: inherit;
+    border-color: #1c2632;
+}
+
+.card .space-img {
+  width: 30%;
+  height: 30%; 
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.card-body {
+  font-size: 16px;
+}
+
+.card-list {
+  list-style: none;
+  padding: 0;
+}
+
+.card-list li {
+  margin: 0;
+}
+
+li::marker {
+  content: "";
+}
+
+/* ------ Logo ------ */
+
+.logo {
+  height: 1.5em; 
+  vertical-align: middle;
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(90deg);
+}
+
+mark.sport {
+  color: white;
+  font-weight: bold;
+  background-color: #2a3543;
+}
+
+mark.hub {
+  color: #2a3543;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 5px;
+  padding: 2px 5px; 
+}
+
+/* ------ Scrollbar ------ */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ------ Add Space ------ */
+
+.addSpace {
+  background-color: #15202b;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 auto;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.addSpace input[type="text"],
+.addSpace textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: #253341;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.addSpace input[type="file"] {
+  color: #8899a6;
+}
+
+.addSpace .error {
+  color: #e0245e;
+}
+
+.addSpace .edit-page-photo-options {
+  margin-top: 20px;
+}
+
+.addSpace button[type="submit"] {
+  background-color: #000; 
+  color: white;
+  margin: 8px 0;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px; 
+  font-family: Arial, sans-serif; 
+}
+
+.addSpace button[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+.hamburger {
+  display: none;
+  color: #000; 
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+
+  .card .profile-img {
+    width: 50px;
+    height: 50px;
+  }
+
+
+  .card-header {
+    font-size: 16px;
+  }
+
+  .card-body {
+    font-size: 14px;
+  }
+  .sidebar a
+  {
+    align-items: left;
+  }
+  .addSpace {
+    padding: 10px;
+  }
+
+  .addSpace input[type="text"],
+  .addSpace textarea {
+    padding: 6px 10px;
+  }
+
+  .addSpace button[type="submit"] {
+    font-size: 14px;
+  }
+  .link-text {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

@@ -1,0 +1,38 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#notificationsContainer {
+    position: absolute;
+    right: 0;
+    top: 90px; 
+    width: 400px; 
+    background-color: #1c2632;
+    border-radius: 4px;
+    overflow: auto;
+    max-height: 600px; 
+    z-index: 1000; 
+}
+
+#notificationsContainer a {
+    color: white;
+    margin-right: 10px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    #notificationsContainer {
+        width: 45%;
+        margin-top:50px;
+        right:10px;
+    }
+}
+
+#notificationsContainer button {
+    margin-bottom: 0 !important;
+}
+
+#notificationsContainer .content #notification {
+    margin-bottom: 0 !important;
+}

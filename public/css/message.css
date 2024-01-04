@@ -1,0 +1,146 @@
+/* ------ Messages ------ */
+
+.messages-card {
+  background-color: #1c2632;
+  flex: 1;
+  padding: 1em;
+  box-sizing: border-box;
+  overflow: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  th {
+    color: white;
+  }
+
+  td {
+    color: white;
+    border-left: 1px solid white;
+    a {
+      color: white;
+    }
+  }
+}
+
+.messages-card td.username::before {
+  margin-left: 10px;
+  content: "@";
+}
+
+.messages-card td a:hover {
+  text-decoration: underline;
+}
+
+.messages-card #results-chats {
+  color: wheat;
+  padding: 1em;
+  overflow: auto;
+  font-size: 15px;
+  background-color: #49535f;
+  border-radius: 5px;
+  max-height: 300px;
+}
+
+.messages-card .searchbar .user-username.search-page-card-user,
+.messages-card .searchbar .space-content.search-page-card-space,
+.messages-card .searchbar .group-content.search-page-card-group,
+.messages-card .comment-content.search-page-card-comment {
+    color: white;
+  margin-bottom: 0;
+  z-index: 1000;
+}
+
+.messages-card .searchbar .search-user-card-username,
+.messages-card .searchbar .search-space-card-content,
+.messages-card .searchbar .search-group-card-content,
+.messages-card .searchbar .search-comment-card-content {
+  margin-top: 0;
+  color: wheat;
+}
+
+/* ------ Message ------ */
+
+.message-card {
+  background-color: #131a21;
+  flex: 1;
+  padding: 1em;
+  box-sizing: border-box; 
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow-y: auto;
+}
+
+.message-card .message-input-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.message-card .header-identifier .profile-messages {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  background-color: #1c2632;
+  color: white;
+
+  h2 {
+    margin-left: 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+
+.message-card .header-identifier .profile-messages .profile-img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.message-card .message-content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  max-height: 70vh;
+  border-radius: 5px;
+  background-color: #1c2632; 
+  overflow-y: auto;
+}
+
+.message-card .message-content .my-message {
+  background-color: #0a7d7d; 
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 50%;
+  width: fit-content;
+  margin-left: auto;
+}
+
+/* Style for messages sent by other users */
+.message-card .message-content .other-message {
+  background-color: #49535f; 
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: fit-content;
+  max-width: 50%;
+}
+
+.message-card .message-content .profile {
+  font-weight: bold;
+  color: white;
+}
+
+.message-card .message-content .message {
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5); 
+  padding: 5px;
+}

@@ -1,0 +1,86 @@
+/* ------ About ------ */
+
+.flex-container .about-card {
+  background-color: #1c2632;
+  overflow: auto;
+  flex: 1;
+  padding: 1em;
+  box-sizing: border-box; 
+  overflow: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.about-card h2,
+.about-card h3 {
+  font-size: 24px; 
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.about-card p {
+  font-size: 16px; 
+  margin-bottom: 10px;
+  color: white;
+}
+
+.about-card ul {
+  padding-left: 20px;
+  color: white;
+}
+
+.about-card ul li {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.about-card .icon-center {
+  text-align: center;
+  padding-top: 5em;
+}
+
+.about-card .icon-center .white-icon {
+  color: white;
+  font-size: 8em;
+}
+
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .flex-container .about-card {
+        padding: 0.5em;
+    }
+
+    .about-card h2,
+    .about-card h3 {
+        font-size: 20px;
+    }
+
+    .about-card p {
+        font-size: 14px;
+    }
+
+    .about-card .icon-center .white-icon {
+        font-size: 6em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .flex-container .about-card {
+        padding: 0.25em;
+    }
+
+    .about-card h2,
+    .about-card h3 {
+        font-size: 16px;
+    }
+
+    .about-card p {
+        font-size: 12px;
+    }
+
+    .about-card .icon-center .white-icon {
+        font-size: 4em;
+    }
+}
